@@ -18,6 +18,7 @@ public class ventana extends JFrame{
 		this.setTitle("Hola");
 		this.setBackground(Color.BLACK);
 		this.setLocation(500,200);
+		// Hola
 	}
 
 
