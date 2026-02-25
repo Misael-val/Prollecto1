@@ -4,12 +4,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class ventana extends JFrame{
@@ -19,7 +24,7 @@ public class ventana extends JFrame{
 	////////////////		VENTANA		////////////////////
 		
 		this.setVisible(true);
-		this.setSize(600,600);
+		this.setSize(1500,1000);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
@@ -34,7 +39,7 @@ public class ventana extends JFrame{
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		contenedor.setOpaque(true);
-		contenedor.setBackground(Color.LIGHT_GRAY);
+		contenedor.setBackground(Color.decode("#C39AF5"));
 		contenedor.setSize(600,600);
 		contenedor.setLocation(0,0);
 		contenedor.setLayout(null);
@@ -48,7 +53,7 @@ public class ventana extends JFrame{
 		title_loguin.setOpaque(true);
 		title_loguin.setForeground(Color.black);
 		title_loguin.setLocation(100,10);
-		title_loguin.setBackground(Color.orange);
+		title_loguin.setBackground(Color.decode("#e5bc34"));
 		title_loguin.setFont(new Font("Arial",Font.BOLD,24)); //Times New Roman
 		title_loguin.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_loguin);
@@ -136,8 +141,7 @@ public class ventana extends JFrame{
 	texto.setLocation(125,275);
 	texto.setFont(new Font("Times New Roman",Font.BOLD,14));
 	texto.setHorizontalAlignment(JLabel.CENTER);
-	texto.setForeground(Color.black);
-	texto.setBackground(Color.red);
+	texto.setForeground(Color.BLUE);
 	contenedor.add(texto);
 	
 	JCheckBox mostrar = new JCheckBox();
@@ -167,11 +171,158 @@ public class ventana extends JFrame{
 
 		contenedor.add(acceder);
 		
+		////////// REGISTRO CLASE //////
 		
+		JPanel registroContenedor = new JPanel();
+		registroContenedor.setSize(600,600);
+		registroContenedor.setLocation(601,0);
+		registroContenedor.setOpaque(true);
+		registroContenedor.setBackground(Color.decode("#B29CD6"));
+		registroContenedor.setLayout(null);
+		this.add(registroContenedor);
+		registroContenedor.repaint();
+		
+		////// PANEL /////
+		
+
+		JLabel titulo = new JLabel("REGISTRO");
+		titulo.setBounds(160,10,275,40);
+		titulo.setFont(new Font("Arial",Font.BOLD,25));
+		titulo.setHorizontalAlignment(JLabel.CENTER);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setBackground(Color.decode("#e5bc34"));
+		registroContenedor.add(titulo);
+		
+		
+		JLabel nombreUSuarioT = new JLabel("NOMBRE DE USUARIO");
+		nombreUSuarioT.setBounds(170,70,275,40);
+		nombreUSuarioT.setFont(new Font("Arial",Font.BOLD,24));
+		nombreUSuarioT.setHorizontalAlignment(JLabel.CENTER);
+		nombreUSuarioT.setOpaque(true);
+		nombreUSuarioT.setForeground(Color.black);
+		nombreUSuarioT.setForeground(Color.black);
+		nombreUSuarioT.setBackground(null);
+		registroContenedor.add(nombreUSuarioT);
+		
+		JTextField nombreUSuario = new JTextField();
+		nombreUSuario.setOpaque(true);
+		nombreUSuario.setBorder(null);
+		nombreUSuario.setOpaque(true);
+		nombreUSuario.setBackground(Color.white);
+		nombreUSuario.setBounds(100,110,400,40);
+		nombreUSuario.setFont(new Font("Arial",Font.BOLD,18));
+		nombreUSuario.setForeground(Color.black);
+		nombreUSuario.setLayout(null);
+		registroContenedor.add(nombreUSuario);
+		
+		//// BIOGRAFiA ////
+		
+		JLabel biografiat = new JLabel("BIOGRAFÍA");
+		biografiat.setBounds(170,155,275,40);
+		biografiat.setFont(new Font("Arial",Font.BOLD,24));
+		biografiat.setHorizontalAlignment(JLabel.CENTER);
+		biografiat.setOpaque(true);
+		biografiat.setForeground(Color.black);
+		biografiat.setBackground(null);
+		registroContenedor.add(biografiat);
+		
+		
+		JTextArea bioE = new JTextArea();
+		bioE.setBounds(100,200,400,75);
+		bioE.setFont(new Font("Arial",Font.BOLD,12));
+		bioE.setForeground(Color.black);
+		registroContenedor.add(bioE);
+		
+		/// PREFERENCIAS ///
+		JLabel preferencias = new JLabel("PREFERENCIAS");
+		preferencias.setBounds(170,280,275,40);
+		preferencias.setFont(new Font("Arial",Font.BOLD,24));
+		preferencias.setHorizontalAlignment(JLabel.CENTER);
+		preferencias.setOpaque(true);
+		preferencias.setForeground(Color.black);
+		preferencias.setBackground(null);
+		registroContenedor.add(preferencias);
+		
+		JCheckBox sweet = new JCheckBox("Dulce");
+		sweet.setBounds(100,320,70,40);
+		sweet.setFont(new Font("Times New Roman",Font.BOLD,15));
+		sweet.setForeground(Color.black);
+		sweet.setBackground(null);
+		registroContenedor.add(sweet);
+		
+		JCheckBox salado = new JCheckBox("Salado");
+		salado.setBounds(250,320,100,40);
+		salado.setFont(new Font("Times New Roman",Font.BOLD,15));
+		salado.setForeground(Color.black);
+		salado.setBackground(null);
+		registroContenedor.add(salado);
+	
+		JCheckBox saludable = new JCheckBox("Saludable");
+		saludable.setBounds(400,320,100,40);
+		saludable.setFont(new Font("Times New Roman",Font.BOLD,15));
+		saludable.setForeground(Color.black);
+		saludable.setBackground(null);
+		//saludable.setBorderPainted(true); //
+		//saludable.setBorder(BorderFactory.createLineBorder(Color.red));// para poner el marco 
+		registroContenedor.add(saludable);
+		
+		//// TERMINOS ////
+		
+		JLabel terminosT = new JLabel("  TÉRMINOS");
+		terminosT.setBounds(100,370,400,30);
+		terminosT.setFont(new Font("Arial",Font.BOLD,24));
+		terminosT.setHorizontalAlignment(JLabel.CENTER);
+		terminosT.setOpaque(true);
+		terminosT.setForeground(Color.black);
+		terminosT.setBackground(Color.decode("#e5bc34"));
+		registroContenedor.add(terminosT);
+		
+	
+		JRadioButton asepto = new JRadioButton("Asepto");
+		asepto.setBounds(145,400,100,30);
+		asepto.setForeground(Color.black);
+		asepto.setFont(new Font("Times New Roman",Font.BOLD,14));
+		asepto.setBackground(null);
+		registroContenedor.add(asepto);
+		
+		JRadioButton Nasepto = new JRadioButton("No asepto");
+		Nasepto.setBounds(370,400,100,30);
+		Nasepto.setForeground(Color.black);
+		Nasepto.setFont(new Font("Times New Roman",Font.BOLD,14));
+		Nasepto.setBackground(null);
+		registroContenedor.add(Nasepto);
+		
+		
+		ButtonGroup termi = new ButtonGroup();
+		termi.add(asepto);
+		termi.add(Nasepto);
+		
+		String [] colonias = {"Camino real","La fuente", "Las americas"};
+		
+		JComboBox lista = new JComboBox(colonias);
+		lista.setBounds(100,440,400,30);
+		lista.setForeground(Color.black);
+		lista.setFont(new Font("Times New Roman",Font.BOLD,14));
+		registroContenedor.add(lista);
+		
+		JButton crearcuenta = new JButton("CREAR CUENTA");
+		crearcuenta.setFont(new Font("Arial",Font.BOLD,25));
+		crearcuenta.setForeground(Color.black);
+		crearcuenta.setSize(230,80);
+		crearcuenta.setLocation(200,490);
+		crearcuenta.setBackground(Color.white);
+		crearcuenta.setBorder(null);
+
+		registroContenedor.add(crearcuenta);
+		
+		
+	
 		
 		
 		//////////////////////////////////////////////////
 		contenedor.repaint();
+		registroContenedor.repaint();		
 		contenedor.revalidate();
 		
 		
