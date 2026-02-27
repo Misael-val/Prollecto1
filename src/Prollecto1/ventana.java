@@ -10,7 +10,7 @@ public class ventana extends JFrame{
 	////////////////		VENTANA		////////////////////
 		
 		this.setVisible(true);
-		this.setSize(1500,1000);
+		this.setSize(615,630);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
@@ -21,7 +21,8 @@ public class ventana extends JFrame{
 		this.setLayout(null);
 		//this.login();
 		//this.registro();
-		this.users();
+		//this.users();
+		this.calculadora();
 	}
 	
 	public void login()
@@ -385,6 +386,178 @@ public class ventana extends JFrame{
 		
 	}
 	
+	public void calculadora() {
+	
+		////////// PANEL /////////
+		
+		GridLayout botones = new GridLayout(4,5,20,25);
+		
+		JPanel panel = new JPanel();
+		panel.setSize(600,600);
+		panel.setLocation(0,0);
+		panel.setOpaque(true);
+		panel.setBackground(Color.decode("#2D3B2E"));
+		panel.setLayout(null);
+		this.add(panel);
+		panel.repaint();
+		
+		///// CAJA DE RESULTADO ////
+		JLabel cajaresultado = new JLabel("500.0");
+		cajaresultado.setSize(570,60);
+		cajaresultado.setOpaque(true);
+		cajaresultado.setForeground(Color.BLACK);
+		cajaresultado.setLocation(17,15);
+		cajaresultado.setBackground(Color.WHITE);
+		cajaresultado.setFont(new Font("Arial",Font.BOLD,24)); //Times New Roman "#e5bc34"
+		cajaresultado.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(cajaresultado);
+		
+		JLabel cajaproseso = new JLabel("250.0 + 250.0");
+		cajaproseso.setSize(420,60);
+		cajaproseso.setOpaque(true);
+		cajaproseso.setForeground(Color.BLACK);
+		cajaproseso.setLocation(166,100);
+		cajaproseso.setBackground(Color.WHITE);
+		cajaproseso.setFont(new Font("Arial",Font.BOLD,24)); //Times New Roman "#e5bc34"
+		cajaproseso.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(cajaproseso);
+		
+		//// BOTONES ///
+		JButton boton7 = new JButton("7");
+		boton7.setForeground(Color.WHITE);
+		boton7.setBackground(Color.decode("#2A6B2A"));  
+		boton7.setFont(new Font("Arial", Font.BOLD, 25));
+		boton7.setBorder(null);
+		
+		JButton boton8 = new JButton("8");
+		boton8.setForeground(Color.WHITE);
+		boton8.setBackground(Color.decode("#2A6B2A"));  
+		boton8.setFont(new Font("Arial", Font.BOLD, 25));
+		boton8.setBorder(null);
+		
+		JButton boton9 = new JButton("9");
+		boton9.setForeground(Color.WHITE);
+		boton9.setBackground(Color.decode("#2A6B2A"));  
+		boton9.setFont(new Font("Arial", Font.BOLD, 25));
+		boton9.setBorder(null);
+		
+		JButton botondividir = new JButton("/");
+		botondividir.setForeground(Color.WHITE);
+		botondividir.setBackground(Color.decode("#56CC82"));  
+		botondividir.setFont(new Font("Arial", Font.BOLD, 25));
+		botondividir.setBorder(null);
+		
+		JButton boton4 = new JButton("4");
+		boton4.setForeground(Color.WHITE);
+		boton4.setBackground(Color.decode("#2A6B2A"));  
+		boton4.setFont(new Font("Arial", Font.BOLD, 25));
+		boton4.setBorder(null);
+		
+		JButton boton5 = new JButton("5");
+		boton5.setForeground(Color.WHITE);
+		boton5.setBackground(Color.decode("#2A6B2A"));  
+		boton5.setFont(new Font("Arial", Font.BOLD, 25));
+		boton5.setBorder(null);
+		
+		JButton boton6 = new JButton("6");
+		boton6.setForeground(Color.WHITE);
+		boton6.setBackground(Color.decode("#2A6B2A"));  
+		boton6.setFont(new Font("Arial", Font.BOLD, 25));
+		boton6.setBorder(null);
+		
+		JButton botonmulti = new JButton("X");
+		botonmulti.setForeground(Color.WHITE);
+		botonmulti.setBackground(Color.decode("#56CC82"));  
+		botonmulti.setFont(new Font("Arial", Font.BOLD, 25));
+		botonmulti.setBorder(null);
+		
+		JButton boton1 = new JButton("1");
+		boton1.setForeground(Color.WHITE);
+		boton1.setBackground(Color.decode("#2A6B2A"));  
+		boton1.setFont(new Font("Arial", Font.BOLD, 25));
+		boton1.setBorder(null);
+		
+		JButton boton2 = new JButton("2");
+		boton2.setForeground(Color.WHITE);
+		boton2.setBackground(Color.decode("#2A6B2A"));  
+		boton2.setFont(new Font("Arial", Font.BOLD, 25));
+		boton2.setBorder(null);
+		
+		JButton boton3 = new JButton("3");
+		boton3.setForeground(Color.WHITE);
+		boton3.setBackground(Color.decode("#2A6B2A"));  
+		boton3.setFont(new Font("Arial", Font.BOLD, 25));
+		boton3.setBorder(null);
+		
+		JButton botonres = new JButton("-");
+		botonres.setForeground(Color.WHITE);
+		botonres.setBackground(Color.decode("#56CC82"));  
+		botonres.setFont(new Font("Arial", Font.BOLD, 25));
+		botonres.setBorder(null);
+		
+		JButton boton0 = new JButton("0");
+		boton0.setForeground(Color.WHITE);
+		boton0.setBackground(Color.decode("#2A6B2A"));  
+		boton0.setFont(new Font("Arial", Font.BOLD, 25));
+		boton0.setBorder(null);
+		
+		JButton botopunto = new JButton(".");
+		botopunto.setForeground(Color.WHITE);
+		botopunto.setBackground(Color.decode("#56CC82"));  
+		botopunto.setFont(new Font("Arial", Font.BOLD, 25));
+		botopunto.setBorder(null);
+		
+		JButton botonigual = new JButton("=");
+		botonigual.setForeground(Color.WHITE);
+		botonigual.setBackground(Color.decode("#56CC82"));  
+		botonigual.setFont(new Font("Arial", Font.BOLD, 25));
+		botonigual.setBorder(null);
+		
+		JButton botonmas = new JButton("+");
+		botonmas.setForeground(Color.WHITE);
+		botonmas.setBackground(Color.decode("#56CC82"));  
+		botonmas.setFont(new Font("Arial", Font.BOLD, 25));
+		botonmas.setBorder(null);
+		
+		
+		JButton botoncanselar = new JButton("CE");
+		botoncanselar.setForeground(Color.WHITE);
+		botoncanselar.setBackground(Color.decode("#56CC82"));  
+		botoncanselar.setFont(new Font("Arial", Font.BOLD, 25));
+		botoncanselar.setSize(130,60);
+		botoncanselar.setLocation(17,100);
+		botoncanselar.setBorder(null);
+		panel.add(botoncanselar);
+
+		
+		/////// PANEL DE BOTONES /////
+		JPanel panelbot = new JPanel(botones);
+		panelbot.setSize(570,400);
+		panelbot.setLocation(17,180);
+		panelbot.setOpaque(true);
+		panelbot.setBackground(null);
+		panelbot.add(boton7);
+		panelbot.add(boton8);
+		panelbot.add(boton9);
+		panelbot.add(botondividir);
+		panelbot.add(boton4);
+		panelbot.add(boton5);
+		panelbot.add(boton6);
+		panelbot.add(botonmulti);
+		panelbot.add(boton1);
+		panelbot.add(boton2);
+		panelbot.add(boton3);
+		panelbot.add(botonres);
+		panelbot.add(botonmas);
+		panelbot.add(boton0);
+		panelbot.add(botopunto);
+		panelbot.add(botonigual);
+		panelbot.add(botonigual);
+		
+		panel.add(panelbot);
+		panelbot.repaint();
+		
+	}
 
 
 
