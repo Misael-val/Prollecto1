@@ -1,21 +1,7 @@
 package Prollecto1;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import java.awt.*;
+import javax.swing.*;
 
 public class ventana extends JFrame{
 
@@ -33,9 +19,13 @@ public class ventana extends JFrame{
 		this.setBackground(Color.BLACK);
 		//this.setLocation(200,200);
 		this.setLayout(null);
-		
-			///////////		PANEL - FONDO		////////////////////
-		
+		//this.login();
+		//this.registro();
+		this.users();
+	}
+	
+	public void login()
+	{
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		contenedor.setOpaque(true);
@@ -171,7 +161,14 @@ public class ventana extends JFrame{
 
 		contenedor.add(acceder);
 		
-		////////// REGISTRO CLASE //////
+		contenedor.repaint();
+		contenedor.revalidate();
+	
+	}
+	
+	public void registro()
+	{
+	////////// REGISTRO CLASE //////
 		
 		JPanel registroContenedor = new JPanel();
 		registroContenedor.setSize(600,600);
@@ -316,25 +313,82 @@ public class ventana extends JFrame{
 
 		registroContenedor.add(crearcuenta);
 		
-		
-	
-		
-		
-		//////////////////////////////////////////////////
-		contenedor.repaint();
-		registroContenedor.repaint();		
-		contenedor.revalidate();
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	
+		registroContenedor.repaint();	
+			
 	
 	}
 	
+	
+	
+	public void users()
+	{
+		JPanel user = new JPanel();
+		user.setSize(1000,500);
+		user.setLocation(100,50);
+		user.setLayout(null);
+		user.setBackground(Color.decode("#7CD6B7"));
+		this.add(user);
+		
+		JLabel usertitulo = new JLabel();
+		usertitulo.setText(" USUARIOS");
+		usertitulo.setSize(155,50);
+		usertitulo.setOpaque(true);
+		usertitulo.setForeground(Color.black);
+		usertitulo.setLocation(400,50);
+		usertitulo.setBackground(Color.decode("#EBC023"));
+		usertitulo.setFont(new Font("Arial",Font.BOLD,20)); //Times New Roman
+		user.add(usertitulo);
+		
+		JButton exportar = new JButton("EXPORTAR");
+		exportar.setBounds(30,120,120,40);
+		user.add(exportar);
+		
+		JButton importar = new JButton("IMPORTAR");
+		importar.setBounds(160,120,120,40);
+		user.add(importar);
+		
+		String [] tabla_head = { "No.contro", "Nombre","Apellido",
+				                 "Semestre","Promedio","Acciones"};
+		
+		String [] [] tabla_contend = {
+									 {"20230001","Misael","López","2°","8.7","Editar / Eliminar"},
+									 {"20230002","Andrea","Martínez","4°","9.1","Editar / Eliminar"},
+									 {"20230003","Carlos","Hernández","6°","7.8","Editar / Eliminar"},
+									 {"20230004","Fernanda","García","1°","9.5","Editar / Eliminar"},
+									 {"20230005","Luis","Ramírez","3°","8.2","Editar / Eliminar"},
+									 {"20230006","Valeria","Torres","5°","9.0","Editar / Eliminar"},
+									 {"20230007","Diego","Morales","7°","7.6","Editar / Eliminar"},
+									 {"20230008","Sofía","Cruz","8°","9.3","Editar / Eliminar"}};
+		
+		JTable user_tabla = new JTable(tabla_contend,tabla_head);
+		JScrollPane scrollPanel = new JScrollPane(user_tabla);
+		
+		scrollPanel.setSize(800,100);
+		scrollPanel.setLocation(30,180);
+		////
+		
+		user.add(scrollPanel);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/////////////////////
+		user.repaint();
+		
+	}
+	
+
+
+
+
+
 }
+
