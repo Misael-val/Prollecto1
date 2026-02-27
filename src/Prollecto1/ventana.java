@@ -9,20 +9,52 @@ public class ventana extends JFrame{
 		
 	////////////////		VENTANA		////////////////////
 		
-		this.setVisible(true);
-		this.setSize(615,630);
+		this.setSize(1200,50); //615,630);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
 		this.setMaximumSize(new Dimension(600,600));
-		this.setTitle("Inicio de sesión");
+		this.setTitle(null);
 		this.setBackground(Color.BLACK);
-		//this.setLocation(200,200);
+		this.setLocation(200,150);
 		this.setLayout(null);
+		
+		JMenuBar barra = new JMenuBar();
+
+		JMenu archivo = new JMenu("ARCHIVO");
+		
+		JMenuItem open = new JMenuItem("ABRIR");
+		JMenuItem close = new JMenuItem("CERRAR");
+		JMenuItem save = new JMenuItem("GURDAR");
+		JMenuItem newfile = new JMenuItem("NUEVO");
+		
+		archivo.add(open);
+		archivo.add(close);
+		archivo.add(save);
+		archivo.add(newfile);
+		
+		barra.add(archivo);
+		
+		JMenu submenu = new JMenu("Otro");
+		
+		archivo.addSeparator();
+		
+		JMenuItem menuItem = new JMenuItem("un objeto en el submenu");
+		submenu.add(menuItem);
+		
+		menuItem = new JMenuItem("Otro objeto");
+		
+		submenu.add(menuItem);
+		archivo.add(submenu);
+		
+		
 		//this.login();
 		//this.registro();
-		//this.users();
-		this.calculadora();
+		this.users();
+		//this.calculadora();
+		this.setJMenuBar(barra);
+		
+		this.setVisible(true);
 	}
 	
 	public void login()
