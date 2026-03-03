@@ -14,7 +14,7 @@ public class ventana extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
 		this.setMaximumSize(new Dimension(600,600));
-		this.setTitle(null);
+		this.setTitle("INICIO DE SECION");
 		this.setBackground(Color.BLACK);
 		this.setLocation(200,150);
 		this.setLayout(null);
@@ -48,11 +48,11 @@ public class ventana extends JFrame{
 		archivo.add(submenu);
 		
 		
-		//this.login();
+		this.login();
 		//this.registro();
-		this.users();
+		//this.users();
 		//this.calculadora();
-		this.setJMenuBar(barra);
+		//this.setJMenuBar(barra);
 		
 		this.setVisible(true);
 	}
@@ -64,14 +64,19 @@ public class ventana extends JFrame{
 		contenedor.setOpaque(true);
 		contenedor.setBackground(Color.decode("#C39AF5"));
 		contenedor.setSize(600,600);
-		contenedor.setLocation(0,0);
+		contenedor.setLocation(300,0);
 		contenedor.setLayout(null);
 		this.add(contenedor);
 		
+		
+		
+		
+		
+		
+		
 		///////////		TITULO		////////////////////
 		
-		JLabel title_loguin = new JLabel();
-		title_loguin.setText("ACCESO REQUERIDO");
+		JLabel title_loguin = new JLabel("ACCESO REQUERIDO");
 		title_loguin.setSize(400,30);
 		title_loguin.setOpaque(true);
 		title_loguin.setForeground(Color.black);
@@ -85,10 +90,10 @@ public class ventana extends JFrame{
 		///////////		DESCRIPCIÓN		////////////////////
 
 		
-		JLabel descripcion = new JLabel();
-		descripcion.setBorder(null);
-		descripcion.setText("*El inicio de sesión es requerido para ingresar*");
+		JLabel descripcion = new JLabel("*El inicio de sesión es requerido para ingresar*");
 		descripcion.setForeground(Color.RED);
+		descripcion.setBorder(null);
+
 		descripcion.setBackground(null);
 		descripcion.setSize(500,24);
 		descripcion.setLocation(50,50);
@@ -101,7 +106,7 @@ public class ventana extends JFrame{
 		JLabel usernameT = new JLabel();
 		usernameT.setText("NOMBRE DE USUARIO");
 		usernameT.setSize(300,30);
-		usernameT.setLocation(0,125);
+		usernameT.setLocation(72,125);
 		usernameT.setFont(new Font("Times New Roman",Font.BOLD,25));
 		usernameT.setHorizontalAlignment(JLabel.CENTER);
 		usernameT.setForeground(Color.black);
@@ -109,24 +114,36 @@ public class ventana extends JFrame{
 		usernameT.setBorder(null);
 		contenedor.add(usernameT);
 		
+
+		
 		JTextField username = new JTextField();
 		username.setOpaque(true);
 		username.setBorder(null);
 		username.setOpaque(true);
 		username.setBackground(Color.white);
 		username.setSize(350,35);
-		username.setLocation(10,165);
+		username.setLocation(75,165);
 		username.setFont(new Font("Arial",Font.BOLD,15));
 		username.setForeground(Color.black);
 		username.setLayout(null);
 		contenedor.add(username);
+		
+		
+		ImageIcon imagen = new ImageIcon("usuario.png");
+		JLabel persona = new JLabel();
+		persona.setBounds(5, 140, 75, 75);
+		persona.setIcon(new ImageIcon (imagen.getImage().getScaledInstance(imagen.getIconWidth(),imagen.getIconHeight(),Image.SCALE_SMOOTH)));
+		contenedor.add(persona);
+		
+		
+		
 		
 ///////////		CONTRASELÑA SEGURA		////////////////////
 		
 	JLabel contraseñaT = new JLabel();
 	contraseñaT.setText("CONTRASEÑA");
 	contraseñaT.setSize(200,30);
-	contraseñaT.setLocation(0,275);
+	contraseñaT.setLocation(75,275);
 	contraseñaT.setFont(new Font("Times New Roman",Font.BOLD,25));
 	contraseñaT.setHorizontalAlignment(JLabel.CENTER);
 	contraseñaT.setForeground(Color.black);
@@ -143,26 +160,34 @@ public class ventana extends JFrame{
 	contraseña.setOpaque(true);
 	contraseña.setBackground(Color.white);
 	contraseña.setSize(350,35);
-	contraseña.setLocation(10,309);
+	contraseña.setLocation(75,309);
 	contraseña.setLayout(null);
 	contenedor.add(contraseña);
 	
-///////////		RECORDAR CONTRASEÑA		////////////////////		
+	
+	ImageIcon imagen1 = new ImageIcon("contraseña.png");
+	JLabel candado = new JLabel();
+	candado.setBounds(5, 275, 75, 75);
+	candado.setIcon(new ImageIcon (imagen1.getImage().getScaledInstance(imagen1.getIconWidth(),imagen1.getIconHeight(),Image.SCALE_SMOOTH)));
+	contenedor.add(candado);
+
+	
+	///////////		RECORDAR CONTRASEÑA		////////////////////		
 	
 	JCheckBox chek = new JCheckBox();
 	chek.setText("RECORDAR");
 	chek.setBackground(null);
 	chek.setBorder(null);
 	chek.setForeground(Color.black);	
-	chek.setFont(new Font("Times New Roman",Font.BOLD,14));
-	chek.setBounds(10, 360, 100, 30);
+	chek.setFont(new Font("Times New Roman",Font.ITALIC,14));
+	chek.setBounds(75, 345, 100, 30);
 	contenedor.add(chek);
 	
 	JLabel texto = new JLabel();
 	texto.setText("¿Olvidaste tu contraseña?");
-	texto.setSize(200,199);
-	texto.setLocation(125,275);
-	texto.setFont(new Font("Times New Roman",Font.BOLD,14));
+	texto.setSize(195,199);
+	texto.setLocation(251,260);
+	texto.setFont(new Font("Times New Roman",Font.ITALIC,14));
 	texto.setHorizontalAlignment(JLabel.CENTER);
 	texto.setForeground(Color.BLUE);
 	contenedor.add(texto);
@@ -172,8 +197,8 @@ public class ventana extends JFrame{
 	mostrar.setBackground(null);
 	mostrar.setBorder(null);
 	mostrar.setForeground(Color.black);	
-	mostrar.setFont(new Font("Times New Roman",Font.BOLD,14));
-	mostrar.setBounds(370, 309, 100, 30);
+	mostrar.setFont(new Font("Times New Roman",Font.ITALIC,14));
+	mostrar.setBounds(430, 310, 100, 30);
 	contenedor.add(mostrar);
 	
 		
