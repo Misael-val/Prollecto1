@@ -5,18 +5,19 @@ import javax.swing.*;
 
 public class ventana extends JFrame{
 
+	
 	public ventana() {
 		
 	////////////////		VENTANA		////////////////////
 		
-		this.setSize(1200,50); //615,630);
+		this.setSize(300,900); //615,630);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
 		this.setMaximumSize(new Dimension(600,600));
 		this.setTitle("INICIO DE SECION");
 		this.setBackground(Color.BLACK);
-		this.setLocation(200,150);
+		this.setLocation(500,40);
 		this.setLayout(null);
 		
 		JMenuBar barra = new JMenuBar();
@@ -48,13 +49,91 @@ public class ventana extends JFrame{
 		archivo.add(submenu);
 		
 		
-		this.login();
+		//this.login();
 		//this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.setJMenuBar(barra);
+		this.prueva();
 		
 		this.setVisible(true);
+	}
+	
+	public void prueva() {
+		
+		
+		JLabel operacion = new JLabel("500");
+		operacion.setSize(300,400);
+		operacion.setOpaque(true);
+		operacion.setForeground(Color.black);
+		operacion.setLocation(100,10);
+		operacion.setBackground(Color.white);
+		operacion.setFont(new Font("Arial",Font.BOLD,24)); //Times New Roman
+		operacion.setHorizontalAlignment(JLabel.CENTER);
+		
+		
+		GridLayout botones = new GridLayout(4,5,5,5);
+		
+		JPanel botonesP = new JPanel(botones);
+		botonesP.setSize(600,500);
+		botonesP.setLocation(100,50);
+		botonesP.setBackground(null);
+		
+
+		
+		JPanel operadores = new JPanel();
+		operadores.setSize(1000,500);
+		operadores.setLocation(100,50);
+		operadores.setBackground(null);
+		operadores.setLayout(new GridLayout(0,1,5,5));
+
+
+		JPanel barra = new JPanel();
+		barra.setSize(40,30);
+		barra.setLocation(0,50);
+		barra.setBackground(null);
+		barra.setLayout(new GridLayout(0,1,5,5));
+		
+		barra.add(new JButton("MC"));
+		barra.add(new JButton("M*"));
+		barra.add(new JButton("/"));
+		barra.add(new JButton("*"));
+		
+		botonesP.add(new JButton("7"));
+		botonesP.add(new JButton("8"));
+		botonesP.add(new JButton("9"));
+		botonesP.add(new JButton("4"));
+		botonesP.add(new JButton("5"));
+		botonesP.add(new JButton("6"));
+		botonesP.add(new JButton("1"));
+		botonesP.add(new JButton("2"));
+		botonesP.add(new JButton("3"));
+		botonesP.add(new JButton("0"));
+		botonesP.add(new JButton("."));
+		botonesP.add(new JButton("="));
+		
+		operadores.add(new JButton("<---"));
+		operadores.add(new JButton("-"));
+		operadores.add(new JButton("+"));
+		operadores.add(new JButton("="));
+		
+		
+		JPanel interfas = new JPanel();
+		interfas.setSize(400,700);
+		interfas.setLocation(100,20);
+		interfas.setLayout( new BorderLayout());
+		interfas.setBackground(Color.orange);
+		
+		interfas.add(botonesP, BorderLayout.CENTER);
+		interfas.add(operacion, BorderLayout.NORTH);
+		interfas.add(operadores, BorderLayout.EAST);
+		interfas.add(barra, BorderLayout.WEST);
+		botonesP.repaint();
+
+		this.add(interfas);
+		
+		
+		
 	}
 	
 	public void login()
@@ -67,11 +146,6 @@ public class ventana extends JFrame{
 		contenedor.setLocation(300,0);
 		contenedor.setLayout(null);
 		this.add(contenedor);
-		
-		
-		
-		
-		
 		
 		
 		///////////		TITULO		////////////////////
@@ -376,10 +450,9 @@ public class ventana extends JFrame{
 	
 	}
 	
-	
-	
 	public void users()
 	{
+		
 		JPanel user = new JPanel();
 		user.setSize(1000,500);
 		user.setLocation(100,50);
@@ -447,7 +520,6 @@ public class ventana extends JFrame{
 	
 		////////// PANEL /////////
 		
-		GridLayout botones = new GridLayout(4,5,20,25);
 		
 		JPanel panel = new JPanel();
 		panel.setSize(600,600);
@@ -588,7 +660,11 @@ public class ventana extends JFrame{
 
 		
 		/////// PANEL DE BOTONES /////
+		
+		GridLayout botones = new GridLayout(4,5,20,25);
+
 		JPanel panelbot = new JPanel(botones);
+		
 		panelbot.setSize(570,400);
 		panelbot.setLocation(17,180);
 		panelbot.setOpaque(true);
