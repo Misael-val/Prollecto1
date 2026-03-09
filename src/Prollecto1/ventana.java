@@ -10,7 +10,7 @@ public class ventana extends JFrame{
 		
 	////////////////		VENTANA		////////////////////
 		
-		this.setSize(300,900); //615,630);
+		this.setSize(600,600); //615,630);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
@@ -19,6 +19,10 @@ public class ventana extends JFrame{
 		this.setBackground(Color.BLACK);
 		this.setLocation(500,40);
 		this.setLayout(null);
+		
+		ImageIcon logoventana = new ImageIcon("logoventana.png");
+		this.setIconImage(logoventana.getImage());
+
 		
 		JMenuBar barra = new JMenuBar();
 
@@ -49,12 +53,12 @@ public class ventana extends JFrame{
 		archivo.add(submenu);
 		
 		
-		//this.login();
+		this.login();
 		//this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.setJMenuBar(barra);
-		this.prueva();
+		//this.prueva();
 		
 		this.setVisible(true);
 	}
@@ -143,7 +147,7 @@ public class ventana extends JFrame{
 		contenedor.setOpaque(true);
 		contenedor.setBackground(Color.decode("#C39AF5"));
 		contenedor.setSize(600,600);
-		contenedor.setLocation(300,0);
+		contenedor.setLocation(0,0);
 		contenedor.setLayout(null);
 		this.add(contenedor);
 		
