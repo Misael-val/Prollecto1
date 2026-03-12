@@ -1,6 +1,11 @@
 package Prollecto1;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ventana extends JFrame{
@@ -10,14 +15,14 @@ public class ventana extends JFrame{
 		
 	////////////////		VENTANA		////////////////////
 		
-		this.setSize(600,600); //615,630);
+		this.setSize(1200,700); //615,630);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
 		this.setMaximumSize(new Dimension(600,600));
 		this.setTitle("INICIO DE SECION");
 		this.setBackground(Color.BLACK);
-		this.setLocation(500,40);
+		this.setLocation(200,50);
 		this.setLayout(null);
 		
 		ImageIcon logoventana = new ImageIcon("logoventana.png");
@@ -53,13 +58,13 @@ public class ventana extends JFrame{
 		archivo.add(submenu);
 		
 		
-		this.login();
+		//this.login();
 		//this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.setJMenuBar(barra);
 		//this.prueva();
-		
+		  this.pintar();
 		this.setVisible(true);
 	}
 	
@@ -695,10 +700,80 @@ public class ventana extends JFrame{
 		panelbot.repaint();
 		
 	}
+	public void pintar() {
+		
+		JPanel pane = new JPanel() {
+	            @Override
+	            protected void paintComponent(Graphics g) {
+	                super.paintComponent(g);
+	                
+	                Graphics2D g2d = (Graphics2D) g;
 
+	                g2d.drawLine(0, 0, 100, 100); //linea negre orisontal
+	                 
+	                g2d.setColor(Color.RED);  // Color
+	                
+	                g2d.drawLine(200, 200, 500, 200);  // linea roja recta
 
+	                g2d.setStroke(new BasicStroke(3)); // grososr (///°_°///)
+	                g2d.drawRect(250,250,100,100); // cuadreado
+	            
+	                g2d.setColor(Color.GREEN);
+	                
+	                g2d.drawOval(400,100,90,90);
+	                
+	                
+	                g2d.setStroke(new BasicStroke(5));
+	                //           X   Y  LA  AN IN  hAAAAAAAAAAAAAAAAAAAAA
+	                g2d.drawArc(250,100,100,100,0,270);
+	                
+	                g2d.drawPolygon(new int [] {200,100,300},new int [] {100,300,500},3);
+	                
+	                g2d.setColor(Color.CYAN);
+	                g2d.fillRect(600,370,100,100);
+	                
+	                g2d.setColor(Color.pink);
+	                g2d.fillOval(500,370,100,100);
+	                
+	                g2d.setColor(Color.yellow); // pacma
+	                g2d.fillArc(100,300,100,100,30,300);
+	                
+	                g2d.setColor(Color.MAGENTA);
+	                g2d.drawPolygon(new int [] {400,300,500},new int [] {200,300,500},3);
+	                
+	                
+	                	BufferedImage image;
+						try {
+							image = ImageIO.read(new File("src/img/usuario.png"));
+							g2d.drawImage(image, 500, 9, null);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+	                
+	                	
+	                
 
+	                
+	                
+	                
+	                
+	                
 
+	            
+	            
+	            
+	            
+	            
+	            
+	            }
+	        };
 
+	        pane.setSize(1200,700);
+	        pane.setLocation(0,0);
+	        this.add(pane);
+	        
+	        
+	}
 }
 
