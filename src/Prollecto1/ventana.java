@@ -21,7 +21,7 @@ public class ventana extends JFrame{
 		this.setMinimumSize(new Dimension(600,600));
 		this.setMaximumSize(new Dimension(600,600));
 		this.setTitle("INICIO DE SECION");
-		this.setBackground(Color.BLACK);
+		this.setBackground(Color.CYAN);
 		this.setLocation(200,50);
 		this.setLayout(null);
 		
@@ -703,16 +703,57 @@ public class ventana extends JFrame{
 	public void pintar() {
 		
 		JPanel pane = new JPanel() {
-	            @Override
+	            
+			@Override
 	            protected void paintComponent(Graphics g) {
 	                super.paintComponent(g);
 	                
 	                Graphics2D g2d = (Graphics2D) g;
 
+	                // Fondo
+	                g2d.setColor(Color.CYAN);
+	                g2d.fillRect(350,50,500,500);
+	                
+	                
+	                //Pasto
+	                g2d.setColor(Color.GREEN);
+	                g2d.fillRect(350,550,500,100);
+	                
+	                //casa
+	                g2d.setColor(Color.yellow);
+	                g2d.fillRect(450,250,300,300);
+	                
+	                //puerta
+	                g2d.setColor(Color.decode("#6B5439"));
+	                g2d.fillRect(545,348,100,195);
+	                
+	                //techo
+	                g2d.setColor(Color.RED);
+	                g2d.fillPolygon(new int [] {600,400,800},new int [] {60,250,250},3);
+
+	                //marco
+	                g2d.setColor(Color.ORANGE);
+	                g2d.fillArc(560,145,80,80,0,360);
+	                
+	                g2d.setColor(Color.ORANGE);
+	                g2d.setStroke(new BasicStroke(5));
+	                g2d.drawLine(100,100,200,200);  
+	                
+
+	                
+	                //ventana
+	                g2d.setColor(Color.CYAN);
+	                g2d.fillArc(565,150,70,70,0,360);
+	                
+	                //pomo
+	                g2d.setColor(Color.ORANGE);
+	                g2d.fillArc(625,425,10,10,90,360);
+	                
+	                
+	                /*
 	                g2d.drawLine(0, 0, 100, 100); //linea negre orisontal
 	                 
 	                g2d.setColor(Color.RED);  // Color
-	                
 	                g2d.drawLine(200, 200, 500, 200);  // linea roja recta
 
 	                g2d.setStroke(new BasicStroke(3)); // grososr (///°_°///)
@@ -742,6 +783,9 @@ public class ventana extends JFrame{
 	                g2d.drawPolygon(new int [] {400,300,500},new int [] {200,300,500},3);
 	                
 	                
+	                
+	                */
+	                /*
 	                	BufferedImage image;
 						try {
 							image = ImageIO.read(new File("src/img/usuario.png"));
@@ -751,20 +795,12 @@ public class ventana extends JFrame{
 							e.printStackTrace();
 						}
 	                
-	                	
+						*/	
 	                
 
 	                
 	                
-	                
-	                
-	                
-
-	            
-	            
-	            
-	            
-	            
+	   
 	            
 	            }
 	        };
