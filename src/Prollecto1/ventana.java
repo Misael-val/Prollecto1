@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import java.awt.event.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -58,13 +58,13 @@ public class ventana extends JFrame{
 		archivo.add(submenu);
 		
 		
-		//this.login();
-		//this.registro();
+		this.login();
+		this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.setJMenuBar(barra);
 		//this.prueva();
-		  this.pintar();
+		//this.pintar();
 		this.setVisible(true);
 	}
 	
@@ -302,6 +302,34 @@ public class ventana extends JFrame{
 
 		contenedor.add(acceder);
 		
+		// bordes
+		acceder.addActionListener(new ActionListener() {
+
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+
+
+		        String user = username.getText();
+
+		        if(user.equals("") || user.contains(" ")) {
+		            username.setBorder(BorderFactory.createLineBorder(Color.red,3,true));
+		        } else {
+		            username.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
+		        }
+
+
+		        String pass = new String(contraseña.getPassword());
+
+		        if(pass.length() < 6 || pass.contains(" ")) {
+		            contraseña.setBorder(BorderFactory.createLineBorder(Color.red,3,true));
+		        } else {
+		            contraseña.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
+		        }
+
+		    }
+		});
+	
+		
 		contenedor.repaint();
 		contenedor.revalidate();
 	
@@ -432,11 +460,11 @@ public class ventana extends JFrame{
 		registroContenedor.add(Nasepto);
 		
 		
-		ButtonGroup termi = new ButtonGroup();
-		termi.add(asepto);
-		termi.add(Nasepto);
+		ButtonGroup grupo = new ButtonGroup();
+		grupo.add(asepto);
+		grupo.add(Nasepto);
 		
-		String [] colonias = {"Camino real","La fuente", "Las americas"};
+		String [] colonias = {"No espesificado","Camino real","La fuente", "Las americas"};
 		
 		JComboBox lista = new JComboBox(colonias);
 		lista.setBounds(100,440,400,30);
@@ -445,12 +473,73 @@ public class ventana extends JFrame{
 		registroContenedor.add(lista);
 		
 		JButton crearcuenta = new JButton("CREAR CUENTA");
+		
 		crearcuenta.setFont(new Font("Arial",Font.BOLD,25));
 		crearcuenta.setForeground(Color.black);
 		crearcuenta.setSize(230,80);
 		crearcuenta.setLocation(200,490);
 		crearcuenta.setBackground(Color.white);
 		crearcuenta.setBorder(null);
+
+		
+		crearcuenta.addActionListener(new ActionListener() {
+
+			// contornos de selecciones
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+
+		        String username_val = nombreUSuario.getText();
+
+		        if(username_val.equals("") || username_val.contains(" ")|| username_val.length() < 6) {
+		            nombreUSuario.setBorder(BorderFactory.createLineBorder(Color.red,3,true));
+		        } else {
+		            nombreUSuario.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
+		        }
+
+
+		        String bio_val = bioE.getText();
+
+		        if(bio_val.equals("")){
+		            bioE.setBorder(BorderFactory.createLineBorder(Color.RED,3,true)); 
+		        }
+		        else {
+		            bioE.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
+		        }
+
+		       
+		        if(!sweet.isSelected() && !salado.isSelected() && !saludable.isSelected()) {
+
+		            sweet.setForeground(Color.red);
+		            salado.setForeground(Color.red);
+		            saludable.setForeground(Color.red);
+
+		        } else {
+
+		            sweet.setForeground(Color.green);
+		            salado.setForeground(Color.green);
+		            saludable.setForeground(Color.green);
+		        }
+
+		        if(!asepto.isSelected()) {
+		            asepto.setForeground(Color.red);
+		            Nasepto.setForeground(Color.red);
+		        } else {
+		            asepto.setForeground(Color.green);
+		            Nasepto.setForeground(Color.green);
+		        
+		        }
+
+		        
+		        if(lista.getSelectedIndex() == 0) {
+		            lista.setBorder(BorderFactory.createLineBorder(Color.red,2));
+		        } else {
+		            lista.setBorder(BorderFactory.createLineBorder(Color.green,2));
+		        }
+
+		    }
+		});
+		
+		
 
 		registroContenedor.add(crearcuenta);
 		
@@ -511,13 +600,7 @@ public class ventana extends JFrame{
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		/////////////////////
@@ -700,6 +783,9 @@ public class ventana extends JFrame{
 		panelbot.repaint();
 		
 	}
+	
+	
+	
 	public void pintar() {
 		
 		JPanel pane = new JPanel() {
@@ -734,12 +820,6 @@ public class ventana extends JFrame{
 	                //marco
 	                g2d.setColor(Color.ORANGE);
 	                g2d.fillArc(560,145,80,80,0,360);
-	                
-	                g2d.setColor(Color.ORANGE);
-	                g2d.setStroke(new BasicStroke(5));
-	                g2d.drawLine(100,100,200,200);  
-	                
-
 	                
 	                //ventana
 	                g2d.setColor(Color.CYAN);
@@ -811,5 +891,10 @@ public class ventana extends JFrame{
 	        
 	        
 	}
+	
+	
+	
+	
+	
 }
 
