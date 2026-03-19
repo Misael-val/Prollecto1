@@ -308,27 +308,42 @@ public class ventana extends JFrame{
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 
-
 		        String user = username.getText();
+		        String pass = new String(contraseña.getPassword());
+
+		        boolean userValido = true;
+		        boolean passValido = true;
 
 		        if(user.equals("") || user.contains(" ")) {
 		            username.setBorder(BorderFactory.createLineBorder(Color.red,3,true));
+		            userValido = false;
 		        } else {
 		            username.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
 		        }
 
-
-		        String pass = new String(contraseña.getPassword());
-
 		        if(pass.length() < 6 || pass.contains(" ")) {
 		            contraseña.setBorder(BorderFactory.createLineBorder(Color.red,3,true));
+		            passValido = false;
 		        } else {
 		            contraseña.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
 		        }
 
+		        if(userValido && passValido) {
+
+		            JOptionPane.showMessageDialog(null,
+		                "Bienvenido ",
+		                "Aprobado",
+		                JOptionPane.PLAIN_MESSAGE);
+
+		        } else {
+
+		            JOptionPane.showMessageDialog(null,
+		                "Datos incorrectos",
+		                "Error",
+		                JOptionPane.PLAIN_MESSAGE);
+		        }
 		    }
-		});
-	
+		});	
 		
 		contenedor.repaint();
 		contenedor.revalidate();
@@ -891,10 +906,6 @@ public class ventana extends JFrame{
 	        
 	        
 	}
-	
-	
-	
-	
 	
 }
 
