@@ -957,11 +957,11 @@ public class ventana extends JFrame{
 
 		            Graphics2D g2d = (Graphics2D) g;
 
-		            // ===== CIELO =====
+		            //cielo 
 		            g2d.setColor(Color.CYAN);
 		            g2d.fillRect(0,0,1200,700);
 
-		            // ===== SUELO =====
+		            //suelo
 		            g2d.setColor(Color.decode("#FF8E0F"));
 		            g2d.fillRect(0,500,1200,200);
 
