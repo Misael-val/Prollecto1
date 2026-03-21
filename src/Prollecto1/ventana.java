@@ -945,19 +945,20 @@ public class ventana extends JFrame{
 	        this.add(pane);
 	        
 	        
+	
 	}
 
 	public void mario() {
 
 		    JPanel marioPanel = new JPanel() {
-
+ 
 		        @Override
 		        protected void paintComponent(Graphics g) {
 		            super.paintComponent(g);
 
 		            Graphics2D g2d = (Graphics2D) g;
 
-		            //cielo 
+		            //sielo
 		            g2d.setColor(Color.CYAN);
 		            g2d.fillRect(0,0,1200,700);
 
