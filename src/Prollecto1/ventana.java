@@ -54,17 +54,22 @@ public class ventana extends JFrame{
 		
 		menuItem = new JMenuItem("Otro objeto");
 		
+		
+	
+		
 		submenu.add(menuItem);
 		archivo.add(submenu);
 		
 		
-		this.login();
-		this.registro();
+		//this.router("login");
+		
+		//this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.setJMenuBar(barra);
 		//this.prueva();
 		//this.pintar();
+		this.mario();
 		this.setVisible(true);
 	}
 	
@@ -345,13 +350,44 @@ public class ventana extends JFrame{
 		    }
 		});	
 		
+		JButton registro = new JButton("¿No tines centa?");
+		registro.setLocation(300,400);
+		registro.setSize(200,100);
+		registro.setFont(new Font("Arial",Font.BOLD,15));
+	
+		registro.addActionListener(e->{
+			this.router("registro");
+			});
+		
+		contenedor.add(registro);
+		
 		contenedor.repaint();
 		contenedor.revalidate();
 	
 	}
 	
+	public void router(String target) {
+		
+		this.getContentPane().removeAll();
+		
+		if (target.equals("login")) {
+			
+		this.login();
+		}
+			if (target.equals("registro")) {
+				
+				this.registro();				
+				}
+				
+			this.setVisible(true);
+			this.repaint();
+			this.revalidate();
+			
+		}
+	
 	public void registro()
 	{
+		
 	////////// REGISTRO CLASE //////
 		
 		JPanel registroContenedor = new JPanel();
@@ -554,13 +590,19 @@ public class ventana extends JFrame{
 		    }
 		});
 		
+		JButton cancelar = new JButton("Cancelar");
+		cancelar.setLocation(300,400);
+		cancelar.setSize(200,100);
+		cancelar.setFont(new Font("Arial",Font.BOLD,15));
+		
+		registroContenedor.add(crearcuenta);
+		
 		
 
 		registroContenedor.add(crearcuenta);
 		
 		registroContenedor.repaint();	
 			
-	
 	}
 	
 	public void users()
@@ -799,8 +841,6 @@ public class ventana extends JFrame{
 		
 	}
 	
-	
-	
 	public void pintar() {
 		
 		JPanel pane = new JPanel() {
@@ -906,6 +946,71 @@ public class ventana extends JFrame{
 	        
 	        
 	}
+
+	public void mario() {
+
+		    JPanel marioPanel = new JPanel() {
+
+		        @Override
+		        protected void paintComponent(Graphics g) {
+		            super.paintComponent(g);
+
+		            Graphics2D g2d = (Graphics2D) g;
+
+		            // ===== CIELO =====
+		            g2d.setColor(Color.CYAN);
+		            g2d.fillRect(0,0,1200,700);
+
+		            // ===== SUELO =====
+		            g2d.setColor(Color.decode("#FF8E0F"));
+		            g2d.fillRect(0,500,1200,200);
+
+		        
+		            
+
+		            //?
+		            g2d.setColor(Color.decode("#FFAF57"));
+		            g2d.fillRect(200,100,60,60);
+		            g2d.fillRect(260,100,60,60);
+		            g2d.fillRect(100,200,60,60);
+		            g2d.fillRect(1000,200,60,60);
+
+		            //bloque
+		            g2d.setColor(Color.decode("#F2D2AE"));
+		            g2d.fillRect(350,350,120,150);
+
+		            g2d.setColor(Color.decode("#50B5AE"));
+		            g2d.fillRect(430,280,140,220);
+
+		            //tuveria
+		            g2d.setColor(Color.decode("#409C45"));
+		            g2d.fillRect(650,380,120,120);
+		            
+		            g2d.setColor(Color.decode("#48A84D"));
+		            g2d.fillRect(640,360,140,40);
+
+		            //bloque verde
+		            g2d.setColor(Color.decode("#9CE85A"));
+		            g2d.fillRect(950,350,200,150);
+
+		            // Arbusto
+		            g2d.setColor(Color.decode("#3B5C21"));
+		            g2d.fillOval(70,420,120,80);
+		            g2d.fillOval(120,400,120,100);
+
+
+		        }
+		    };
+
+		    marioPanel.setSize(1200,700);
+		    marioPanel.setLocation(0,0);
+
+		    this.add(marioPanel);
+
+		}
+		
+		
+	}
 	
-}
+
 
