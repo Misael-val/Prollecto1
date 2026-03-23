@@ -31,16 +31,32 @@ public class ventana extends JFrame{
 		
 		JMenuBar barra = new JMenuBar();
 
-		JMenu archivo = new JMenu("ARCHIVO");
+		JMenu archivo = new JMenu("OPCIONES");
 		
-		JMenuItem open = new JMenuItem("ABRIR");
+		JMenuItem open = new JMenuItem("INICIO");
 		JMenuItem close = new JMenuItem("CERRAR");
 		JMenuItem save = new JMenuItem("GURDAR");
-		JMenuItem newfile = new JMenuItem("NUEVO");
+		JMenuItem newfile = new JMenuItem("REGIDSTRO");
+		
+		//barra
+		
+		open.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        router("login");
+		    }
+		});
+
+		newfile.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        router("registro");
+		    }
+		});
 		
 		archivo.add(open);
-		archivo.add(close);
-		archivo.add(save);
+		//archivo.add(close);
+		//archivo.add(save);
 		archivo.add(newfile);
 		
 		barra.add(archivo);
@@ -54,22 +70,21 @@ public class ventana extends JFrame{
 		
 		menuItem = new JMenuItem("Otro objeto");
 		
-		
-	
+
 		
 		submenu.add(menuItem);
-		archivo.add(submenu);
+		//archivo.add(submenu);
 		
 		
-		//this.router("login");
+		this.router("login");
 		
 		//this.registro();
 		//this.users();
 		//this.calculadora();
-		//this.setJMenuBar(barra);
+		this.setJMenuBar(barra);
 		//this.prueva();
 		//this.pintar();
-		this.mario();
+		//this.mario();
 		this.setVisible(true);
 	}
 	
@@ -351,9 +366,11 @@ public class ventana extends JFrame{
 		});	
 		
 		JButton registro = new JButton("¿No tines centa?");
-		registro.setLocation(300,400);
-		registro.setSize(200,100);
 		registro.setFont(new Font("Arial",Font.BOLD,15));
+		registro.setSize(150,40);
+		registro.setLocation(40,460);
+		registro.setBackground(Color.white);
+		registro.setBorder(null);
 	
 		registro.addActionListener(e->{
 			this.router("registro");
@@ -371,13 +388,12 @@ public class ventana extends JFrame{
 		this.getContentPane().removeAll();
 		
 		if (target.equals("login")) {
-			
-		this.login();
+		this.login(); 	
 		}
-			if (target.equals("registro")) {
-				
-				this.registro();				
-				}
+		
+		if (target.equals("registro")) {
+			this.registro();				
+			}
 				
 			this.setVisible(true);
 			this.repaint();
@@ -590,12 +606,23 @@ public class ventana extends JFrame{
 		    }
 		});
 		
-		JButton cancelar = new JButton("Cancelar");
-		cancelar.setLocation(300,400);
-		cancelar.setSize(200,100);
-		cancelar.setFont(new Font("Arial",Font.BOLD,15));
+		//regresar
+		JButton regresar = new JButton("REGRESAR");
+		regresar.setFont(new Font("Arial",Font.BOLD,15));
+		regresar.setSize(150,40);
+		regresar.setLocation(40,520);
+		regresar.setBackground(Color.white);
+		regresar.setBorder(null);
+
+		regresar.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        router("login");
+		    }
+		});
+
+		registroContenedor.add(regresar);
 		
-		registroContenedor.add(crearcuenta);
 		
 		
 
