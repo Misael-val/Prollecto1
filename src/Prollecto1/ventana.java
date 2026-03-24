@@ -15,18 +15,18 @@ public class ventana extends JFrame{
 		
 	////////////////		VENTANA		////////////////////
 		
-		this.setSize(1200,700); //615,630);
+		this.setSize(610,610); //615,630);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
 		this.setMaximumSize(new Dimension(600,600));
-		this.setTitle("INICIO DE SECION");
+		//this.setTitle("INICIO DE SECION");
 		this.setBackground(Color.CYAN);
-		this.setLocation(200,50);
+		this.setLocation(300,50);
 		this.setLayout(null);
 		
 		ImageIcon logoventana = new ImageIcon("logoventana.png");
-		this.setIconImage(logoventana.getImage());
+		//this.setIconImage(logoventana.getImage());
 
 		
 		JMenuBar barra = new JMenuBar();
@@ -76,12 +76,14 @@ public class ventana extends JFrame{
 		//archivo.add(submenu);
 		
 		
-		this.router("login");
+		this.examen();
+		
+		//this.router("login");
 		
 		//this.registro();
 		//this.users();
 		//this.calculadora();
-		this.setJMenuBar(barra);
+		//this.setJMenuBar(barra);
 		//this.prueva();
 		//this.pintar();
 		//this.mario();
@@ -1036,9 +1038,222 @@ public class ventana extends JFrame{
 		    this.add(marioPanel);
 
 		}
+	
+	public void examen() {
 		
-		
+		//ventana
+		JPanel panel = new JPanel();
+	    panel.setSize(600,600);
+	    panel.setLocation(0,0);
+	    panel.setLayout(null);
+	    panel.setBackground(Color.white);
+	    this.add(panel);
+
+	    // titulo
+	    JPanel titulos = new JPanel();
+	    titulos.setBounds(0,0,600,60);
+	    titulos.setBackground(Color.decode("#632A69"));
+	    titulos.setLayout(null);
+	    panel.add(titulos);
+
+	    JLabel titulo = new JLabel("Factura en Java - NetBeans - ArrayList y POO");
+	    titulo.setBounds(10,5,400,20);
+	    titulo.setForeground(Color.WHITE);
+	    titulo.setFont(new Font("Arial",Font.BOLD,14));
+	    titulos.add(titulo);
+
+	    JLabel tituo1 = new JLabel("[Sin Base de datos]");
+	    tituo1.setBounds(10,30,200,20);
+	    tituo1.setForeground(Color.WHITE);
+	    titulos.add(tituo1);
+
+	    // seccion 1 
+	    JPanel seccion1 = new JPanel();
+	    seccion1.setBounds(10,90,580,80);
+	    seccion1.setBackground(Color.LIGHT_GRAY);
+	    seccion1.setBorder(BorderFactory.createLineBorder(Color.black));
+	    seccion1.setLayout(null);
+	    panel.add(seccion1);
+	    
+	    JLabel tituloCliente = new JLabel("Datos del cliente");
+	    tituloCliente.setBounds(20,70,200,20);
+	    tituloCliente.setFont(new Font("Arial",Font.BOLD,14));
+	    panel.add(tituloCliente);
+
+	    JLabel documentos = new JLabel("Documento:");
+	    documentos.setForeground(Color.black);
+	    documentos.setBounds(10,20,100,20);
+	    seccion1.add(documentos);
+
+	    JTextField documentoF = new JTextField("123456");
+	    documentoF.setBounds(100,20,100,20);
+	    seccion1.add(documentoF);
+
+	    JLabel nombre = new JLabel("Nombres:");
+	    nombre.setForeground(Color.black);
+	    nombre.setBounds(270,20,80,20);
+	    seccion1.add(nombre);
+
+	    JTextField nombresF = new JTextField("Jhonathan");
+	    nombresF.setBounds(350,20,200,20);
+	    seccion1.add(nombresF);
+
+	    JLabel direccion = new JLabel("Dirección:");
+	    direccion.setBounds(10,50,80,20);
+	    direccion.setForeground(Color.black);
+	    seccion1.add(direccion);
+
+	    JTextField direccionF = new JTextField("Calle chile ");
+	    direccionF.setBounds(100,50,150,20);
+	    seccion1.add(direccionF);
+
+	    JLabel telefono = new JLabel("Teléfono:");
+	    telefono.setBounds(270,50,80,20);
+	    telefono.setForeground(Color.black);
+	    seccion1.add(telefono);
+
+	    JTextField telefonoF = new JTextField("555555555");
+	    telefonoF.setBounds(350,50,150,20);
+	    seccion1.add(telefonoF);
+
+	    // Informacion 
+	    JPanel factura = new JPanel();
+	    factura.setBounds(10,200,580,60);
+	    factura.setBackground(Color.LIGHT_GRAY);
+	    factura.setBorder(BorderFactory.createLineBorder(Color.black));
+	    factura.setLayout(null);
+	    panel.add(factura);
+		    
+	    JLabel facturaT = new JLabel("Datos de factura");
+	    facturaT.setBounds(20,180,200,20);
+	    facturaT.setFont(new Font("Arial",Font.BOLD,14));
+	    panel.add(facturaT);
+
+	    JLabel numeroFac = new JLabel("Num Factura:");
+	    numeroFac.setBounds(10,20,100,20);
+	    numeroFac.setForeground(Color.black);
+	    factura.add(numeroFac);
+
+	    JLabel num = new JLabel("1");
+	    num.setBounds(100,20,50,20);
+	    factura.add(num);
+
+	    JLabel fecha = new JLabel("Fecha:");
+	    fecha.setBounds(250,20,50,20);
+	    fecha.setForeground(Color.black);
+	    factura.add(fecha);
+
+	    JLabel fechaT = new JLabel("21/5/2026");
+	    fechaT.setBounds(350,20,100,20);
+	    factura.add(fechaT);
+
+	    // tabla
+	   
+	    String columnas[] = {"Producto","Cantidad","Valor","Sub Total"};
+	    String datos[][] = {
+	        {"Agua","2","500","1000"},
+	        {"Cereal","5","1000","5000"},
+	        {"Leche","2","300","600"}};
+
+	    JTable tabla = new JTable(datos,columnas);
+	    JScrollPane scroll = new JScrollPane(tabla);
+	    scroll.setBounds(10,300,580,100);
+	    panel.add(scroll);
+
+	    //boton
+	    JButton verlista = new JButton("Ver listado de facturas");
+	    verlista.setBounds(8,265,200,25);
+	    verlista.setFont(new Font("Arial",Font.BOLD,15));
+	    verlista.setForeground(Color.white);
+	    verlista.setBackground(Color.decode("#9C4BA3"));
+	    verlista.setBorder(null);
+	    panel.add(verlista);
+
+	    JButton añadir = new JButton("Añadir");
+	    añadir.setBounds(400,265,80,25);
+	    añadir.setFont(new Font("Arial",Font.BOLD,15));
+	    añadir.setForeground(Color.white);
+	    añadir.setBackground(Color.decode("#9C4BA3"));
+	    añadir.setBorder(null);
+	    panel.add(añadir);
+
+	    JButton eliminar = new JButton("Eliminar");
+	    eliminar.setBounds(500,265,80,25);
+	    eliminar.setFont(new Font("Arial",Font.BOLD,15));
+	    eliminar.setForeground(Color.white);
+	    eliminar.setBackground(Color.decode("#9C4BA3"));
+	    eliminar.setBorder(null);
+	    panel.add(eliminar);
+
+	    //final 
+	    JLabel subtotal = new JLabel("SubTotal:");
+	    subtotal.setBounds(10,410,100,20);
+	    panel.add(subtotal);
+
+	    JLabel subtotalT = new JLabel("6600.0");
+	    subtotalT.setBounds(100,410,100,20);
+	    subtotalT.setForeground(Color.black);
+	    panel.add(subtotalT);
+
+	    JLabel descuento = new JLabel("% Descuento:");
+	    descuento.setBounds(10,440,100,20);
+	    panel.add(descuento);
+
+	    JTextField descuentoT = new JTextField("5");
+	    descuentoT.setBounds(100,440,50,20);
+	    descuentoT.setForeground(Color.black);
+	    panel.add(descuentoT);
+	    
+	    JCheckBox marca = new JCheckBox();
+	    marca.setBounds(157,440,20,20);
+	    marca.setBorder(null);
+	    marca.setBackground(null);
+	    marca.setOpaque(false);
+	    panel.add(marca);
+	    
+
+	    JLabel valor = new JLabel("Valor descontado: 330.0");
+	    valor.setBounds(180,440,200,20);
+	    valor.setForeground(Color.black);
+	    panel.add(valor);
+
+	    JLabel iva = new JLabel("IVA 19%:");
+	    iva.setBounds(10,470,100,20);
+	    panel.add(iva);
+
+	    JLabel ivaT = new JLabel("1254.0");
+	    ivaT.setBounds(100,470,100,20);
+	    ivaT.setForeground(Color.black);
+	    panel.add(ivaT);
+
+	    JLabel total = new JLabel("Total factura:");
+	    total.setBounds(10,500,100,20);
+	    panel.add(total);
+
+	    JLabel totalT = new JLabel("7524.0");
+	    totalT.setBounds(100,500,100,20);
+	    nombre.setForeground(Color.black);
+	    panel.add(totalT);
+
+	    JButton finalizar = new JButton("Finalizar factura");
+	    finalizar.setBounds(287,515,180,40);
+	    finalizar.setFont(new Font("Arial",Font.BOLD,15));
+	    finalizar.setForeground(Color.white);
+	    finalizar.setBackground(Color.decode("#9C4BA3"));
+	    finalizar.setBorder(null);
+	    panel.add(finalizar);
+	    
+	    JButton limpiar = new JButton("Limpiar");
+	    limpiar.setBounds(487,520,100,30);
+	    limpiar.setFont(new Font("Arial",Font.BOLD,15));
+	    limpiar.setForeground(Color.white);
+	    limpiar.setBackground(Color.decode("#9C4BA3"));
+	    limpiar.setBorder(null);
+	    panel.add(limpiar);
+
 	}
+		
+}
 	
 
 
