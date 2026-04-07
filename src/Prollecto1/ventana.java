@@ -15,7 +15,7 @@ public class ventana extends JFrame{
 		
 	////////////////		VENTANA		////////////////////
 		
-		this.setSize(610,610); //615,630);
+		this.setSize(615,640);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(600,600));
@@ -29,68 +29,85 @@ public class ventana extends JFrame{
 		//this.setIconImage(logoventana.getImage());
 
 		
-		JMenuBar barra = new JMenuBar();
+		//archivo.add(submenu);
+		
+		
+		//this.examen();
+		
+		this.router("login");
+		
+		//this.registro();
+		//this.users();
+		//this.calculadora();
+		//this.prueva();
+		//this.pintar();
+		this.menu();
+		this.setVisible(true);
+	}
+	
 
-		JMenu archivo = new JMenu("OPCIONES");
+	public void menu() {
+		JMenuBar barra = new JMenuBar();
 		
-		JMenuItem open = new JMenuItem("INICIO");
-		JMenuItem close = new JMenuItem("CERRAR");
-		JMenuItem save = new JMenuItem("GURDAR");
-		JMenuItem newfile = new JMenuItem("REGIDSTRO");
+		JMenu cuenta = new JMenu("CUENTA");
+		JMenuItem logein = new JMenuItem("LOGIN");		
+		JMenuItem registro = new JMenuItem("REGISTRO");
+		JMenuItem rcuenta = new JMenuItem("RECUPERAR CUENTA");
 		
-		//barra
+		//JMenu archivo = new JMenu("OPCIONES");
 		
-		open.addActionListener(new ActionListener() {
+		//router
+		logein.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        router("login");
 		    }
 		});
+		
+		rcuenta.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        router("rceunta");
+		    }
+		});
 
-		newfile.addActionListener(new ActionListener() {
+
+		registro.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        router("registro");
 		    }
 		});
 		
-		archivo.add(open);
-		//archivo.add(close);
-		//archivo.add(save);
-		archivo.add(newfile);
+		cuenta.add(logein);
+		cuenta.add(registro);
+		cuenta.add(rcuenta);
+		barra.add(cuenta);
 		
-		barra.add(archivo);
+		JMenu usuario = new JMenu("USUARIO");
+		JMenuItem alta = new JMenuItem("ALTA");		
+		JMenuItem baja = new JMenuItem("BAJA");
+		JMenuItem consultar = new JMenuItem("CONSULTAR");
 		
-		JMenu submenu = new JMenu("Otro");
+		usuario.add(alta);
+		usuario.add(baja);
+		usuario.add(consultar);
+		barra.add(usuario);
 		
-		archivo.addSeparator();
+		JMenu ayuda = new JMenu("AYUDA");
+		JMenuItem como = new JMenuItem("¿Cómo crear un usuario?");		
+		JMenuItem como1 = new JMenuItem("¿Cómo acceder al sistema?");
+		JMenuItem que = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
 		
-		JMenuItem menuItem = new JMenuItem("un objeto en el submenu");
-		submenu.add(menuItem);
-		
-		menuItem = new JMenuItem("Otro objeto");
-		
-
-		
-		submenu.add(menuItem);
-		//archivo.add(submenu);
+		ayuda.add(como);
+		ayuda.add(como1);
+		ayuda.add(que);
+		barra.add(ayuda);
 		
 		
-		this.examen();
-		
-		//this.router("login");
-		
-		//this.registro();
-		//this.users();
-		//this.calculadora();
-		//this.setJMenuBar(barra);
-		//this.prueva();
-		//this.pintar();
-		//this.mario();
-		this.setVisible(true);
-	}
+		this.setJMenuBar(barra);}		
 	
-	public void prueva() {
+public void prueva() {
 		
 		
 		JLabel operacion = new JLabel("500");
@@ -162,10 +179,7 @@ public class ventana extends JFrame{
 		botonesP.repaint();
 
 		this.add(interfas);
-		
-		
-		
-	}
+		}
 	
 	public void login()
 	{
@@ -383,6 +397,7 @@ public class ventana extends JFrame{
 		contenedor.repaint();
 		contenedor.revalidate();
 	
+	
 	}
 	
 	public void router(String target) {
@@ -396,12 +411,59 @@ public class ventana extends JFrame{
 		if (target.equals("registro")) {
 			this.registro();				
 			}
+		if (target.equals("rcuenta")) {
+			this.rcuenta();				
+			}
 				
 			this.setVisible(true);
 			this.repaint();
 			this.revalidate();
 			
 		}
+	
+	
+	public void rcuenta()
+	{
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		contenedor.setOpaque(true);
+		contenedor.setBackground(Color.decode("#C39AF5"));
+		contenedor.setSize(600,600);
+		contenedor.setLocation(0,0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		///////////		TITULO		////////////////////
+		
+		JLabel title_loguin = new JLabel("Recuperar cuenta");
+		title_loguin.setSize(400,30);
+		title_loguin.setOpaque(true);
+		title_loguin.setForeground(Color.black);
+		title_loguin.setLocation(100,10);
+		title_loguin.setBackground(Color.decode("#e5bc34"));
+		title_loguin.setFont(new Font("Arial",Font.BOLD,24)); //Times New Roman
+		title_loguin.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_loguin);
+		
+				
+		JButton registro = new JButton("regresar");
+		registro.setFont(new Font("Arial",Font.BOLD,15));
+		registro.setSize(150,40);
+		registro.setLocation(40,460);
+		registro.setBackground(Color.white);
+		registro.setBorder(null);
+	
+		registro.addActionListener(e->{
+			this.router("login");
+			});
+		
+		contenedor.add(registro);
+		
+		contenedor.repaint();
+		contenedor.revalidate();
+	}
+	
 	
 	public void registro()
 	{
@@ -410,7 +472,7 @@ public class ventana extends JFrame{
 		
 		JPanel registroContenedor = new JPanel();
 		registroContenedor.setSize(600,600);
-		registroContenedor.setLocation(601,0);
+		registroContenedor.setLocation(0,0);
 		registroContenedor.setOpaque(true);
 		registroContenedor.setBackground(Color.decode("#B29CD6"));
 		registroContenedor.setLayout(null);
@@ -694,289 +756,6 @@ public class ventana extends JFrame{
 		
 	}
 	
-	public void calculadora() {
-	
-		////////// PANEL /////////
-		
-		
-		JPanel panel = new JPanel();
-		panel.setSize(600,600);
-		panel.setLocation(0,0);
-		panel.setOpaque(true);
-		panel.setBackground(Color.decode("#2D3B2E"));
-		panel.setLayout(null);
-		this.add(panel);
-		panel.repaint();
-		
-		///// CAJA DE RESULTADO ////
-		JLabel cajaresultado = new JLabel("500.0");
-		cajaresultado.setSize(570,60);
-		cajaresultado.setOpaque(true);
-		cajaresultado.setForeground(Color.BLACK);
-		cajaresultado.setLocation(17,15);
-		cajaresultado.setBackground(Color.WHITE);
-		cajaresultado.setFont(new Font("Arial",Font.BOLD,24)); //Times New Roman "#e5bc34"
-		cajaresultado.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(cajaresultado);
-		
-		JLabel cajaproseso = new JLabel("250.0 + 250.0");
-		cajaproseso.setSize(420,60);
-		cajaproseso.setOpaque(true);
-		cajaproseso.setForeground(Color.BLACK);
-		cajaproseso.setLocation(166,100);
-		cajaproseso.setBackground(Color.WHITE);
-		cajaproseso.setFont(new Font("Arial",Font.BOLD,24)); //Times New Roman "#e5bc34"
-		cajaproseso.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(cajaproseso);
-		
-		//// BOTONES ///
-		JButton boton7 = new JButton("7");
-		boton7.setForeground(Color.WHITE);
-		boton7.setBackground(Color.decode("#2A6B2A"));  
-		boton7.setFont(new Font("Arial", Font.BOLD, 25));
-		boton7.setBorder(null);
-		
-		JButton boton8 = new JButton("8");
-		boton8.setForeground(Color.WHITE);
-		boton8.setBackground(Color.decode("#2A6B2A"));  
-		boton8.setFont(new Font("Arial", Font.BOLD, 25));
-		boton8.setBorder(null);
-		
-		JButton boton9 = new JButton("9");
-		boton9.setForeground(Color.WHITE);
-		boton9.setBackground(Color.decode("#2A6B2A"));  
-		boton9.setFont(new Font("Arial", Font.BOLD, 25));
-		boton9.setBorder(null);
-		
-		JButton botondividir = new JButton("/");
-		botondividir.setForeground(Color.WHITE);
-		botondividir.setBackground(Color.decode("#56CC82"));  
-		botondividir.setFont(new Font("Arial", Font.BOLD, 25));
-		botondividir.setBorder(null);
-		
-		JButton boton4 = new JButton("4");
-		boton4.setForeground(Color.WHITE);
-		boton4.setBackground(Color.decode("#2A6B2A"));  
-		boton4.setFont(new Font("Arial", Font.BOLD, 25));
-		boton4.setBorder(null);
-		
-		JButton boton5 = new JButton("5");
-		boton5.setForeground(Color.WHITE);
-		boton5.setBackground(Color.decode("#2A6B2A"));  
-		boton5.setFont(new Font("Arial", Font.BOLD, 25));
-		boton5.setBorder(null);
-		
-		JButton boton6 = new JButton("6");
-		boton6.setForeground(Color.WHITE);
-		boton6.setBackground(Color.decode("#2A6B2A"));  
-		boton6.setFont(new Font("Arial", Font.BOLD, 25));
-		boton6.setBorder(null);
-		
-		JButton botonmulti = new JButton("X");
-		botonmulti.setForeground(Color.WHITE);
-		botonmulti.setBackground(Color.decode("#56CC82"));  
-		botonmulti.setFont(new Font("Arial", Font.BOLD, 25));
-		botonmulti.setBorder(null);
-		
-		JButton boton1 = new JButton("1");
-		boton1.setForeground(Color.WHITE);
-		boton1.setBackground(Color.decode("#2A6B2A"));  
-		boton1.setFont(new Font("Arial", Font.BOLD, 25));
-		boton1.setBorder(null);
-		
-		JButton boton2 = new JButton("2");
-		boton2.setForeground(Color.WHITE);
-		boton2.setBackground(Color.decode("#2A6B2A"));  
-		boton2.setFont(new Font("Arial", Font.BOLD, 25));
-		boton2.setBorder(null);
-		
-		JButton boton3 = new JButton("3");
-		boton3.setForeground(Color.WHITE);
-		boton3.setBackground(Color.decode("#2A6B2A"));  
-		boton3.setFont(new Font("Arial", Font.BOLD, 25));
-		boton3.setBorder(null);
-		
-		JButton botonres = new JButton("-");
-		botonres.setForeground(Color.WHITE);
-		botonres.setBackground(Color.decode("#56CC82"));  
-		botonres.setFont(new Font("Arial", Font.BOLD, 25));
-		botonres.setBorder(null);
-		
-		JButton boton0 = new JButton("0");
-		boton0.setForeground(Color.WHITE);
-		boton0.setBackground(Color.decode("#2A6B2A"));  
-		boton0.setFont(new Font("Arial", Font.BOLD, 25));
-		boton0.setBorder(null);
-		
-		JButton botopunto = new JButton(".");
-		botopunto.setForeground(Color.WHITE);
-		botopunto.setBackground(Color.decode("#56CC82"));  
-		botopunto.setFont(new Font("Arial", Font.BOLD, 25));
-		botopunto.setBorder(null);
-		
-		JButton botonigual = new JButton("=");
-		botonigual.setForeground(Color.WHITE);
-		botonigual.setBackground(Color.decode("#56CC82"));  
-		botonigual.setFont(new Font("Arial", Font.BOLD, 25));
-		botonigual.setBorder(null);
-		
-		JButton botonmas = new JButton("+");
-		botonmas.setForeground(Color.WHITE);
-		botonmas.setBackground(Color.decode("#56CC82"));  
-		botonmas.setFont(new Font("Arial", Font.BOLD, 25));
-		botonmas.setBorder(null);
-		
-		
-		JButton botoncanselar = new JButton("CE");
-		botoncanselar.setForeground(Color.WHITE);
-		botoncanselar.setBackground(Color.decode("#56CC82"));  
-		botoncanselar.setFont(new Font("Arial", Font.BOLD, 25));
-		botoncanselar.setSize(130,60);
-		botoncanselar.setLocation(17,100);
-		botoncanselar.setBorder(null);
-		panel.add(botoncanselar);
-
-		
-		/////// PANEL DE BOTONES /////
-		
-		GridLayout botones = new GridLayout(4,5,20,25);
-
-		JPanel panelbot = new JPanel(botones);
-		
-		panelbot.setSize(570,400);
-		panelbot.setLocation(17,180);
-		panelbot.setOpaque(true);
-		panelbot.setBackground(null);
-		panelbot.add(boton7);
-		panelbot.add(boton8);
-		panelbot.add(boton9);
-		panelbot.add(botondividir);
-		panelbot.add(boton4);
-		panelbot.add(boton5);
-		panelbot.add(boton6);
-		panelbot.add(botonmulti);
-		panelbot.add(boton1);
-		panelbot.add(boton2);
-		panelbot.add(boton3);
-		panelbot.add(botonres);
-		panelbot.add(botonmas);
-		panelbot.add(boton0);
-		panelbot.add(botopunto);
-		panelbot.add(botonigual);
-		panelbot.add(botonigual);
-		
-		panel.add(panelbot);
-		panelbot.repaint();
-		
-	}
-	
-	public void pintar() {
-		
-		JPanel pane = new JPanel() {
-	            
-			@Override
-	            protected void paintComponent(Graphics g) {
-	                super.paintComponent(g);
-	                
-	                Graphics2D g2d = (Graphics2D) g;
-
-	                // Fondo
-	                g2d.setColor(Color.CYAN);
-	                g2d.fillRect(350,50,500,500);
-	                
-	                
-	                //Pasto
-	                g2d.setColor(Color.GREEN);
-	                g2d.fillRect(350,550,500,100);
-	                
-	                //casa
-	                g2d.setColor(Color.yellow);
-	                g2d.fillRect(450,250,300,300);
-	                
-	                //puerta
-	                g2d.setColor(Color.decode("#6B5439"));
-	                g2d.fillRect(545,348,100,195);
-	                
-	                //techo
-	                g2d.setColor(Color.RED);
-	                g2d.fillPolygon(new int [] {600,400,800},new int [] {60,250,250},3);
-
-	                //marco
-	                g2d.setColor(Color.ORANGE);
-	                g2d.fillArc(560,145,80,80,0,360);
-	                
-	                //ventana
-	                g2d.setColor(Color.CYAN);
-	                g2d.fillArc(565,150,70,70,0,360);
-	                
-	                //pomo
-	                g2d.setColor(Color.ORANGE);
-	                g2d.fillArc(625,425,10,10,90,360);
-	                
-	                
-	                /*
-	                g2d.drawLine(0, 0, 100, 100); //linea negre orisontal
-	                 
-	                g2d.setColor(Color.RED);  // Color
-	                g2d.drawLine(200, 200, 500, 200);  // linea roja recta
-
-	                g2d.setStroke(new BasicStroke(3)); // grososr (///°_°///)
-	                g2d.drawRect(250,250,100,100); // cuadreado
-	            
-	                g2d.setColor(Color.GREEN);
-	                
-	                g2d.drawOval(400,100,90,90);
-	                
-	                
-	                g2d.setStroke(new BasicStroke(5));
-	                //           X   Y  LA  AN IN  hAAAAAAAAAAAAAAAAAAAAA
-	                g2d.drawArc(250,100,100,100,0,270);
-	                
-	                g2d.drawPolygon(new int [] {200,100,300},new int [] {100,300,500},3);
-	                
-	                g2d.setColor(Color.CYAN);
-	                g2d.fillRect(600,370,100,100);
-	                
-	                g2d.setColor(Color.pink);
-	                g2d.fillOval(500,370,100,100);
-	                
-	                g2d.setColor(Color.yellow); // pacma
-	                g2d.fillArc(100,300,100,100,30,300);
-	                
-	                g2d.setColor(Color.MAGENTA);
-	                g2d.drawPolygon(new int [] {400,300,500},new int [] {200,300,500},3);
-	                
-	                
-	                
-	                */
-	                /*
-	                	BufferedImage image;
-						try {
-							image = ImageIO.read(new File("src/img/usuario.png"));
-							g2d.drawImage(image, 500, 9, null);
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-	                
-						*/	
-	                
-
-	                
-	                
-	   
-	            
-	            }
-	        };
-
-	        pane.setSize(1200,700);
-	        pane.setLocation(0,0);
-	        this.add(pane);
-	        
-	        
-	
-	}
-
 	public void mario() {
 
 		    JPanel marioPanel = new JPanel() {
@@ -1252,7 +1031,8 @@ public class ventana extends JFrame{
 	    panel.add(limpiar);
 
 	}
-		
+
+	
 }
 	
 
