@@ -26,7 +26,7 @@ public class ventana extends JFrame{
 		this.setLayout(null);
 		
 		
-		this.router("login");
+		//this.router("login");
 		
 		
 		ImageIcon logoventana = new ImageIcon("logoventana.png");
@@ -38,16 +38,97 @@ public class ventana extends JFrame{
 		
 		//this.examen();
 		
-		
+		this.juego3();
 		//this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.prueva();
 		//this.pintar();
-		this.menu();
+		//this.menu();
 		this.setVisible(true);
 	}
 	
+	public void juego3() {
+	
+		JPanel contenedor = new JPanel();
+		contenedor.setSize(600,600);
+	    contenedor.setLocation(0,0);
+	    contenedor.setBackground(Color.decode("#C39AF6"));
+	    contenedor.setLayout(new GridLayout(3,3,5,5));
+
+	    setFont(new Font("Arial",Font.BOLD,60));
+
+	    JButton boton1 = new JButton("");
+	    boton1.setFont(new Font("Arial",Font.BOLD,60));
+	    boton1.setBackground(Color.white);
+	    boton1.setForeground(Color.black);
+	    boton1.setBorder(null);
+
+	    JButton boton2 = new JButton("");
+	    boton2.setFont(new Font("Arial",Font.BOLD,60));
+	    boton2.setBackground(Color.white);
+	    boton2.setForeground(Color.black);
+	    boton2.setBorder(null);
+
+	    JButton boton3 = new JButton("");
+	    boton3.setFont(new Font("Arial",Font.BOLD,60));
+	    boton3.setBackground(Color.white);
+	    boton3.setForeground(Color.black);
+	    boton3.setBorder(null);
+
+	    JButton boton4 = new JButton("");
+	    boton4.setFont(new Font("Arial",Font.BOLD,60));
+	    boton4.setBackground(Color.white);
+	    boton4.setForeground(Color.black);
+	    boton4.setBorder(null);
+
+	    JButton boton5 = new JButton("");
+	    boton5.setFont(new Font("Arial",Font.BOLD,60));
+	    boton5.setBackground(Color.white);
+	    boton5.setForeground(Color.black);
+	    boton5.setBorder(null);
+
+	    JButton boton6 = new JButton("");
+	    boton6.setFont(new Font("Arial",Font.BOLD,60));
+	    boton6.setBackground(Color.white);
+	    boton6.setForeground(Color.black);
+	    boton6.setBorder(null);
+
+	    JButton boton7 = new JButton("");
+	    boton7.setFont(new Font("Arial",Font.BOLD,60));
+	    boton7.setBackground(Color.white);
+	    boton7.setForeground(Color.black);
+	    boton7.setBorder(null);
+
+	    JButton boton8 = new JButton("");
+	    boton8.setFont(new Font("Arial",Font.BOLD,60));
+	    boton8.setBackground(Color.white);
+	    boton8.setForeground(Color.black);
+	    boton8.setBorder(null);
+
+	    JButton boton9 = new JButton("");
+	    boton9.setFont(new Font("Arial",Font.BOLD,60));
+	    boton9.setBackground(Color.white);
+	    boton9.setForeground(Color.black);
+	    boton9.setBorder(null);
+
+	    contenedor.add(boton1);
+	    contenedor.add(boton2);
+	    contenedor.add(boton3);
+	    contenedor.add(boton4);
+	    contenedor.add(boton5);
+	    contenedor.add(boton6);
+	    contenedor.add(boton7);
+	    contenedor.add(boton8);
+	    contenedor.add(boton9);
+	   
+	    this.add(contenedor);
+
+	    contenedor.repaint();
+	    contenedor.revalidate();	    
+	    
+	}
+		
 
 	public void menu() {
 		JMenuBar barra = new JMenuBar();
