@@ -9,6 +9,18 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ventana extends JFrame{
+	
+	String turno = "X";
+
+	String[][] tablero = new String[3][3];
+
+	int puntosX = 0;
+	int puntosO = 0;
+
+	JLabel marcadorX;
+	JLabel marcadorO;
+
+	BotonGato[][] botones = new BotonGato[3][3];	
 
 	
 	public ventana() {
@@ -24,8 +36,7 @@ public class ventana extends JFrame{
 		this.setBackground(Color.CYAN);
 		this.setLocation(300,50);
 		this.setLayout(null);
-		
-		
+			
 		//this.router("login");
 		
 		
@@ -48,87 +59,145 @@ public class ventana extends JFrame{
 		this.setVisible(true);
 	}
 	
-	public void juego3() {
-	
-		JPanel contenedor = new JPanel();
-		contenedor.setSize(600,600);
-	    contenedor.setLocation(0,0);
-	    contenedor.setBackground(Color.decode("#C39AF6"));
-	    contenedor.setLayout(new GridLayout(3,3,5,5));
+	public void juego3(){
 
-	    setFont(new Font("Arial",Font.BOLD,60));
+        marcadorX = new JLabel("X: 0");
+        marcadorX.setBounds(100,10,100,30);
+        marcadorX.setFont(new Font("Arial",Font.BOLD,20));
+        this.add(marcadorX);
 
-	    JButton boton1 = new JButton("");
-	    boton1.setFont(new Font("Arial",Font.BOLD,60));
-	    boton1.setBackground(Color.white);
-	    boton1.setForeground(Color.black);
-	    boton1.setBorder(null);
+        marcadorO = new JLabel("O: 0");
+        marcadorO.setBounds(420,10,100,30);
+        marcadorO.setFont(new Font("Arial",Font.BOLD,20));
+        this.add(marcadorO);
 
-	    JButton boton2 = new JButton("");
-	    boton2.setFont(new Font("Arial",Font.BOLD,60));
-	    boton2.setBackground(Color.white);
-	    boton2.setForeground(Color.black);
-	    boton2.setBorder(null);
 
-	    JButton boton3 = new JButton("");
-	    boton3.setFont(new Font("Arial",Font.BOLD,60));
-	    boton3.setBackground(Color.white);
-	    boton3.setForeground(Color.black);
-	    boton3.setBorder(null);
+        JButton reiniciar = new JButton("Reiniciar");
+        reiniciar.setBounds(250,10,100,30);
+        reiniciar.setFont(new Font("Arial",Font.BOLD,17));
+        reiniciar.setBackground(Color.white);
+        reiniciar.setForeground(Color.black);
+        reiniciar.setBorder(null);
+        reiniciar.addActionListener(e -> reiniciar());
+        this.add(reiniciar);
 
-	    JButton boton4 = new JButton("");
-	    boton4.setFont(new Font("Arial",Font.BOLD,60));
-	    boton4.setBackground(Color.white);
-	    boton4.setForeground(Color.black);
-	    boton4.setBorder(null);
+        JPanel panel = new JPanel();
+        panel.setBounds(0,50,600,500);
+        panel.setLayout(new GridLayout(3,3,5,5));
+        panel.setBackground(Color.decode("#C39AF6"));
 
-	    JButton boton5 = new JButton("");
-	    boton5.setFont(new Font("Arial",Font.BOLD,60));
-	    boton5.setBackground(Color.white);
-	    boton5.setForeground(Color.black);
-	    boton5.setBorder(null);
 
-	    JButton boton6 = new JButton("");
-	    boton6.setFont(new Font("Arial",Font.BOLD,60));
-	    boton6.setBackground(Color.white);
-	    boton6.setForeground(Color.black);
-	    boton6.setBorder(null);
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
 
-	    JButton boton7 = new JButton("");
-	    boton7.setFont(new Font("Arial",Font.BOLD,60));
-	    boton7.setBackground(Color.white);
-	    boton7.setForeground(Color.black);
-	    boton7.setBorder(null);
+                botones[i][j] = new BotonGato(i,j);
 
-	    JButton boton8 = new JButton("");
-	    boton8.setFont(new Font("Arial",Font.BOLD,60));
-	    boton8.setBackground(Color.white);
-	    boton8.setForeground(Color.black);
-	    boton8.setBorder(null);
+                int f = i;
+                int c = j;
 
-	    JButton boton9 = new JButton("");
-	    boton9.setFont(new Font("Arial",Font.BOLD,60));
-	    boton9.setBackground(Color.white);
-	    boton9.setForeground(Color.black);
-	    boton9.setBorder(null);
+                botones[i][j].addActionListener(e -> jugar(f,c));
 
-	    contenedor.add(boton1);
-	    contenedor.add(boton2);
-	    contenedor.add(boton3);
-	    contenedor.add(boton4);
-	    contenedor.add(boton5);
-	    contenedor.add(boton6);
-	    contenedor.add(boton7);
-	    contenedor.add(boton8);
-	    contenedor.add(boton9);
-	   
-	    this.add(contenedor);
+                panel.add(botones[i][j]);
+            }
+        }
 
-	    contenedor.repaint();
-	    contenedor.revalidate();	    
-	    
-	}
-		
+        this.add(panel);
+    }
+
+    public void jugar(int fila, int col){
+
+        if(tablero[fila][col] != null)
+            return;
+
+        botones[fila][col].setText(turno);
+        tablero[fila][col] = turno;
+
+        if(verificarGanador()){
+
+            JOptionPane.showMessageDialog(this,"Gano " + turno);
+
+            if(turno.equals("X")){
+                puntosX++;
+                marcadorX.setText("X: " + puntosX);
+            }else{
+                puntosO++;
+                marcadorO.setText("O: " + puntosO);
+            }
+
+            reiniciar();
+            return;
+        }
+
+        if(verificarEmpate()){
+            JOptionPane.showMessageDialog(this,"Empate");
+            reiniciar();
+            return;
+        }
+
+        cambiarTurno();
+    }
+
+    public void cambiarTurno(){
+
+        if(turno.equals("X"))
+            turno = "O";
+        else
+            turno = "X";
+    }
+
+    public boolean verificarGanador(){
+
+        for(int i=0;i<3;i++){
+
+            if(tablero[i][0]!=null &&
+               tablero[i][0].equals(tablero[i][1]) &&
+               tablero[i][1].equals(tablero[i][2]))
+               return true;
+
+            if(tablero[0][i]!=null &&
+               tablero[0][i].equals(tablero[1][i]) &&
+               tablero[1][i].equals(tablero[2][i]))
+               return true;
+        }
+
+        if(tablero[0][0]!=null &&
+           tablero[0][0].equals(tablero[1][1]) &&
+           tablero[1][1].equals(tablero[2][2]))
+           return true;
+
+        if(tablero[0][2]!=null &&
+           tablero[0][2].equals(tablero[1][1]) &&
+           tablero[1][1].equals(tablero[2][0]))
+           return true;
+
+        return false;
+    }
+
+    public boolean verificarEmpate(){
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+
+                if(tablero[i][j] == null)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void reiniciar(){
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+
+                tablero[i][j] = null;
+                botones[i][j].setText("");
+            }
+        }
+
+        turno = "X";
+    }
 
 	public void menu() {
 		JMenuBar barra = new JMenuBar();
