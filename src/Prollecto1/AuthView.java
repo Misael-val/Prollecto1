@@ -25,7 +25,7 @@ import javax.swing.JTextField;
 public class AuthView {
 	
 	
-	public void loginView() {
+	public void loginView(AuthController controller) {
 		
 		JFrame ventana = new JFrame();
 		ventana.setSize(615,640);
@@ -247,7 +247,7 @@ public class AuthView {
 		registro.addActionListener(e->{
 //			this.router("registro");
 			ventana.dispose();
-			registerView();
+			controller.registroVista();
 			});
 		
 		JButton recuperar = new JButton("Recuperar cuenta");
@@ -270,7 +270,7 @@ public class AuthView {
 		ventana.setVisible(true);
 		
 	}
-	public void registerView() {
+	public void registerView(AuthController controller) {
 		
 		JFrame ventana = new JFrame();
 		ventana.setSize(615,640);
@@ -427,7 +427,6 @@ public class AuthView {
 		
 		crearcuenta.addActionListener(new ActionListener() {
 
-			// contornos de selecciones
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 
@@ -439,25 +438,19 @@ public class AuthView {
 		            nombreUSuario.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
 		        }
 
-
 		        String bio_val = bioE.getText();
 
 		        if(bio_val.equals("")){
 		            bioE.setBorder(BorderFactory.createLineBorder(Color.RED,3,true)); 
-		        }
-		        else {
+		        } else {
 		            bioE.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
 		        }
 
-		       
 		        if(!sweet.isSelected() && !salado.isSelected() && !saludable.isSelected()) {
-
 		            sweet.setForeground(Color.red);
 		            salado.setForeground(Color.red);
 		            saludable.setForeground(Color.red);
-
 		        } else {
-
 		            sweet.setForeground(Color.green);
 		            salado.setForeground(Color.green);
 		            saludable.setForeground(Color.green);
@@ -469,15 +462,16 @@ public class AuthView {
 		        } else {
 		            asepto.setForeground(Color.green);
 		            Nasepto.setForeground(Color.green);
-		        
 		        }
 
-		        
 		        if(lista.getSelectedIndex() == 0) {
 		            lista.setBorder(BorderFactory.createLineBorder(Color.red,2));
 		        } else {
 		            lista.setBorder(BorderFactory.createLineBorder(Color.green,2));
 		        }
+
+		        String colonia = lista.getSelectedItem().toString();
+		        controller.registrarUsuario(username_val, bio_val, colonia);
 
 		    }
 		});
@@ -495,7 +489,7 @@ public class AuthView {
 		    public void actionPerformed(ActionEvent e) {
 	//	        router("login");
 		    	ventana.dispose();
-		    	loginView();
+		    	controller.login();
 		    }
 		});
 
