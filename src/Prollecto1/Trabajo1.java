@@ -1,6 +1,8 @@
 package Prollecto1;
 import java.util.Scanner;
 
+import Controller.AuthController;
+
 public class Trabajo1 {
 	
 	public static void main(String[] args) {

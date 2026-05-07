@@ -1,4 +1,4 @@
-package Prollecto1;
+package View;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,6 +21,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import Controller.AuthController;
 
 public class AuthView {
 	
@@ -438,9 +440,9 @@ public class AuthView {
 		            nombreUSuario.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
 		        }
 
-		        String bio_val = bioE.getText();
-
-		        if(bio_val.equals("")){
+		        String password = bioE.getText();
+		        
+		        if(password.equals("")){
 		            bioE.setBorder(BorderFactory.createLineBorder(Color.RED,3,true)); 
 		        } else {
 		            bioE.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
@@ -470,8 +472,8 @@ public class AuthView {
 		            lista.setBorder(BorderFactory.createLineBorder(Color.green,2));
 		        }
 
-		        String colonia = lista.getSelectedItem().toString();
-		        controller.registrarUsuario(username_val, bio_val, colonia);
+		        String nombre = lista.getSelectedItem().toString();
+		        controller.registrarUsuario(username_val, password, nombre);
 
 		    }
 		});
