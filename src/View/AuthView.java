@@ -222,19 +222,25 @@ public class AuthView {
 		            contraseña.setBorder(BorderFactory.createLineBorder(Color.green,3,true));
 		        }
 
+		        
 		        if(userValido && passValido) {
 
-		            JOptionPane.showMessageDialog(null,
-		                "Bienvenido ",
-		                "Aprobado",
-		                JOptionPane.PLAIN_MESSAGE);
+		            boolean acceso = controller.loginUsuario(user, pass);
 
-		        } else {
+		            if(acceso) {
 
-		            JOptionPane.showMessageDialog(null,
-		                "Datos incorrectos",
-		                "Error",
-		                JOptionPane.PLAIN_MESSAGE);
+		                JOptionPane.showMessageDialog(null,"Bienvenido");
+
+		                ventana.dispose();
+
+		                new HomeView().showHome();
+
+		            } else {
+
+		                JOptionPane.showMessageDialog(null,
+		                    "Usuario o contraseña incorrectos");
+		            }
+
 		        }
 		    }
 		});	
