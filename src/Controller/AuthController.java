@@ -11,13 +11,14 @@ public class AuthController {
 	    private AuthView vista;
 	    private AuthModel modelo;
 	    private HomeView casa;
+	    
 
 	    public AuthController() {
 	        vista = new AuthView();
 	        modelo = new AuthModel();
 	        casa = new HomeView();
 	    }
-
+	    
 	    public void login() {
 	        vista.loginView(this);
 	    }
@@ -27,7 +28,7 @@ public class AuthController {
 	    }
 	    
 	    public void Home() {
-	        casa.showHome();
+	        casa.showHome(this);
 	    }
 	    
 	    public ArrayList<User> obtenerUsuarios() {
@@ -35,29 +36,34 @@ public class AuthController {
 	        return modelo.obtenerUsuarios();
 	    }
 	    
-	    public void registrarUsuario(String user, String password, String nombre) {
+	    public boolean registrarUsuario(User u) {
 
-	        if(user.equals("") || user.length() < 6) {
-	            System.out.println("Usuario invalido");
-	            return;
-	        }
-
-	        if(password.length() < 6) {
-	            System.out.println("Contraseña invalida");
-	            return;
-	        }
-
-	        boolean registrado = modelo.registro(user, password, nombre);
-
-	        if(registrado) {
-
-	            System.out.println("Usuario registrado");
-
-	        } else {
-
-	            System.out.println("Error al registrar");
-	        }
+	        return modelo.registrarUsuario(u);
 	    }
+	    
+	    public void registrarUsuario(String nombre,
+                String apellido,
+                String correo,
+                String password,
+                String telefono) {
+
+		boolean registrado = modelo.registro(
+				nombre,
+				apellido,
+				correo,
+				password,
+				telefono
+				);
+		
+		if(registrado) {
+		
+		System.out.println("Usuario registrado");
+		
+		} else {
+		
+		System.out.println("Error al registrar");
+		}
+	}
 	    
 	    public boolean loginUsuario(String user, String password) {
 
